@@ -1,0 +1,209 @@
+/* Accordion */
+.region {
+	padding: 5px;
+	box-shadow: 1px 1px gainsboro;
+	border: 0.5px solid gainsboro;
+}
+.collapseA:before {
+	content: '\25BC';
+	float: left;
+	transition: all 0.5s;
+}
+.activeA:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-transform: rotate(180deg);
+}
+.textA { display: none; }
+.activeB:before {
+	content: '\25B2';
+	float: left;
+	transition: all 0.5s;
+}
+.collapseB:before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.textB { display: block; }
+/* End of accordion */
+
+body {
+	FONT-FAMILY: Arial;
+/*	background-image: url('../images/LHC.jpg');
+	background-size:cover; */
+}
+h2 {
+	color:darkslategray;
+	font-size:1.5em;
+}
+img {
+	border:0;
+	height:100px;
+}
+table {
+	border-collapse:collapse;
+	border:1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+td {
+	border:1px solid black;
+	padding:6px;
+}
+th {
+	border:1px solid black;
+	padding:6px;
+}
+tr:nth-child(odd) { background-color: snow; }
+tr:nth-child(even) { background-color: azure; }
+.container {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap:20px;
+	gap: 20px;
+}
+header {
+	grid-column: 1 / 13;
+	grid-row: 1;
+	padding: 10px;
+	border-bottom: 8px solid darkslategray;
+	display: grid;
+	grid-template-columns: 2fr 11fr;
+	grid-gap: 20px;
+	gap: 20px;
+}
+article {
+	grid-column: 2 / 12;
+	grid-row: 2;
+}
+footer {
+	grid-column: 2/12;
+	grid-row: 3;
+}
+.logo {
+	grid-column: 1;
+	grid-row: 1;
+}
+.heading {
+	grid-column: 2;
+	grid-row: 1;
+	text-align: left;
+	font-size: 2.5em;
+}
+a:link, a:visited {
+	background-color:slategray; 
+	color: black;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+a:hover, a:active {
+	background-color:lightslategray;
+}
+.actionbox {
+	padding: 14px 25px;
+	/* border: 2px solid darkslategray; */
+	border-radius: 8px;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+/* Two-column situations */
+.column {
+	border: none;
+}
+.left {
+	flex: 1;
+	margin-right: 20px;
+}
+.right {
+	flex: 0.5;
+}
+.row {
+	display: flex;
+}
+/* End of two-columns */
+
+@media print {
+img {
+	max-width: 40%;
+	height: auto;
+}
+.container {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	grid-gap:0px;
+	gap: 0px;
+}
+header {
+	grid-column: 1 / 4;
+	grid-row: 1;
+	padding: 0px;
+	border-bottom: none;
+	display: inline-grid;
+	grid-gap: 0px;
+	gap: 0px;
+	page-break-after: avoid;
+}
+article {
+	page-break-before: avoid;
+	page-break-inside: auto;
+	grid-column: 2;
+	grid-row: 2;
+}
+table {
+	border:1px solid black;
+	page-break-inside: auto;
+}
+thead {
+	display: table-header-group;
+}
+tfoot {
+	display: table-footer-group;
+}
+td {	border:1px solid black; }
+tr {
+	margin-top:-8px;
+	padding-top:8px;
+	page-break-inside: avoid; 
+	page-break-after: auto; 
+	border:1px solid black;
+}
+.textB {
+	page-break-before: avoid;
+	page-break-inside: auto;
+}
+.textA {
+	page-break-before: avoid;
+	page-break-after: avoid;
+}
+h2 {
+	font-size: 1.0em;
+}
+h3 {
+	font-size: 0.8em;
+}
+h4 {
+	font-size: 0.7em;
+}
+.logo {
+	grid-column: 1;
+	grid-row: 1;
+}
+.heading {
+	grid-column: 2;
+	grid-row: 1;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#content,#page {
+width: 100%;
+margin: 0;
+float: none;
+}
+
+}
+
